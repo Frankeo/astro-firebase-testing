@@ -1,5 +1,19 @@
 ---
+import { Menu } from "common-components-astro";
+import "bulma";
 
+interface Props {
+  title: string;
+  user?: string;
+}
+
+const { title, user } = Astro.props;
+const appName = "Werewolves";
+const session = {
+  hrefSignIn: "/signin",
+  hrefSignOut: "/api/auth/signout",
+  user,
+};
 ---
 
 <html lang="en">
@@ -8,9 +22,10 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{`${appName} - ${title}`}</title>
   </head>
-  <body>
+  <body style="overflow-x: hidden;">
+    <Menu title={appName} session={session} />
     <slot />
   </body>
 </html>

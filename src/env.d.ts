@@ -1,4 +1,12 @@
-import "astro/client";
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
+/// <reference types="astro/client" />
+declare namespace App {
+  interface Locals {
+    user: {
+      displayName?: string;
+    };
+  }
+}
 
 interface ImportMetaEnv {
   readonly FIREBASE_PRIVATE_KEY_ID: string;

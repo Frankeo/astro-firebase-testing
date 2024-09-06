@@ -1292,6 +1292,11 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-1.0.1.tgz#0b62c9f47f557a5b4adc073bb0a47542ce6af4c4"
   integrity sha512-jmEnr/pk0yVkA7mIlHNnxCi+wWzOFUg0WyIotgkKAb2u1J7fAeDBcVNSTjTihbAYNusCLQdW5s9IJ5qwnEufcQ==
 
+"@fortawesome/fontawesome-free@^6.4.2":
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.6.0.tgz#0e984f0f2344ee513c185d87d77defac4c0c8224"
+  integrity sha512-60G28ke/sXdtS9KZCpZSHHkCbdsOGEhIUGlwq6yhY74UpTiToIh8np7A8yphhM4BWsvNFtIvLpi4co+h9Mr9Ow==
+
 "@google-cloud/firestore@^7.7.0":
   version "7.10.0"
   resolved "https://registry.yarnpkg.com/@google-cloud/firestore/-/firestore-7.10.0.tgz#fc434f6da583aba48d5532ce322e8c03af1978f8"
@@ -2858,10 +2863,10 @@ common-ancestor-path@^1.0.1:
   resolved "https://registry.yarnpkg.com/common-ancestor-path/-/common-ancestor-path-1.0.1.tgz#4f7d2d1394d91b7abdf51871c62f71eadb0182a7"
   integrity sha512-L3sHRo1pXXEqX8VU28kfgUY+YGsk09hPqZiZmLacNib6XNTCM8ubYeT7ryXQw8asB1sKgcU5lkB7ONug08aB8w==
 
-common-components-astro@^0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/common-components-astro/-/common-components-astro-0.0.11.tgz#a8f5809c8551eba178970ee1f65670652d219077"
-  integrity sha512-JctwFb+kQPTEuz0rR6m/SDaXE2kwYo6BaTntTxp5R5KbE0tQ9jqm4Z4NotJVqMoyfQtyx95oYiwyaP58UVX45w==
+common-components-astro@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/common-components-astro/-/common-components-astro-0.0.12.tgz#05e151453388b3b30a5ad858758911edd44558d1"
+  integrity sha512-1d4FDHuc0frBISqrbgAB8n3DM4EZaJAY1cHuCyGWWhz56xr3ntQ0kx1a3Npzgd5oLuNuau9siDb9tsn3oLCseg==
   dependencies:
     "@astrojs/check" "^0.3.1"
     astro "^3.5.4"
