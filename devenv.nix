@@ -14,6 +14,7 @@
     pkgs.oh-my-zsh
     pkgs.zsh-autosuggestions
     pkgs.zsh-syntax-highlighting
+    pkgs.jdk22
   ];
 
   # https://devenv.sh/languages/

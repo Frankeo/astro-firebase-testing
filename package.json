@@ -3,20 +3,19 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
+    "dev": "firebase emulators:start",
     "ci-build": "yarn pre-push && yarn build",
     "lint": "stylelint '**/*.astro' && eslint '**/*.{ts,astro}'",
     "test": "vitest",
     "pre-push": "yarn check-format && yarn lint && yarn test run",
-    "check-format": "prettier . --check --ignore-unknown",
-    "preview": "astro preview",
-    "astro": "astro"
+    "check-format": "prettier . --check --ignore-unknown"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
+    "@astrojs/node": "^8.3.3",
     "astro": "^3.4.4",
+    "firebase": "^10.13.1",
+    "firebase-admin": "^12.4.0",
     "nanostores": "^0.9.3"
   },
   "devDependencies": {
