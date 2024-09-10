@@ -25,6 +25,7 @@
   languages.javascript.corepack.enable = true;
   languages.javascript.yarn.enable = true;
   languages.javascript.yarn.package = pkgs.yarn;
+  dotenv.disableHint = true;
 
   # https://devenv.sh/processes/
   # processes.cargo-watch.exec = "cargo-watch";
@@ -36,6 +37,9 @@
   enterShell = ''
     grep -Fq "zsh-syntax-highlighting.zsh" ~/.zshrc || echo "source $DEVENV_DOTFILE/profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
     grep -Fq "zsh-autosuggestions.zsh" ~/.zshrc || echo "source $DEVENV_DOTFILE/profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+    export FIREBASE_AUTH_EMULATOR_HOST="127.0.0.1:9099"
+    export FIRESTORE_EMULATOR_HOST="127.0.0.1:8080"
+    export PROD=false
   '';
   # https://devenv.sh/tests/
 

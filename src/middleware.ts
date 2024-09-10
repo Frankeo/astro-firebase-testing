@@ -2,7 +2,7 @@ import { defineMiddleware } from "astro/middleware";
 import { app } from "./firebase/server";
 import { getAuth } from "firebase-admin/auth";
 
-const PROTECTED_PATH = ["/"];
+const PROTECTED_PATH = ["/", "/new-game", "/game/"];
 
 const auth = getAuth(app);
 
@@ -32,6 +32,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
   context.locals.user = {
     displayName: user?.displayName,
+    uid: decodedCookie.uid,
   };
   return await next();
 });
