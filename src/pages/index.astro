@@ -1,9 +1,63 @@
 ---
+import Modal from "../components/Modal.astro";
 import Layout from "../layouts/Layout.astro";
 const user = Astro.locals.user;
 ---
 
 <Layout title="Home" user={user?.displayName}>
-  <h1>Welcome {user.displayName}</h1>
-  <p>We are happy to see you here</p>
+  <section class="section is-medium">
+    <div class="buttons are-large is-centered">
+      <a class="button is-primary is-responsive" href="/game/new">
+        <span class="icon is-large">
+          <i class="fab fa-2x fa-plus"></i>
+        </span>
+        <span>Create a Game</span>
+      </a>
+      <button
+        class="button is-responsive modal-trigger"
+        data-target="modal-rol"
+      >
+        <span class="icon is-large">
+          <i class="fa-solid fa-2x fa-right-to-bracket"></i>
+        </span>
+        <span>Join a Game</span>
+      </button>
+    </div>
+  </section>
+  <Modal>
+    <article class="message is-primary">
+      <p class="message-header">Join a Game</p>
+      <form class="message-body" method="post" action="/api/game/join">
+        <div class="field">
+          <p class="control has-icons-left">
+            <input
+              class="input"
+              type="text"
+              placeholder="Game Code"
+              name="game-id"
+            />
+            <span class="icon is-small is-left">
+              <i class="fa-solid fa-gamepad"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <button type="submit" class="button is-primary is-fullwidth"
+              >Join</button
+            >
+          </div>
+        </div>
+      </form>
+    </article>
+  </Modal>
 </Layout>
+
+<style>
+  .button {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+</style>

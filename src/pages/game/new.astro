@@ -1,0 +1,91 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "bulma-slider/dist/css/bulma-slider.min.css";
+const user = Astro.locals.user;
+---
+
+<Layout title="New Game" user={user?.displayName}>
+  <section class="section is-flex is-justify-content-center">
+    <article class="message is-primary">
+      <p class="message-header">Configure new game</p>
+      <form class="message-body" method="post" action="/api/game">
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label has-text-centered">Wolves Amount</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <span class="control">
+                <input
+                  id="wolvesSlider"
+                  class="slider has-output is-fullwidth"
+                  min="1"
+                  max="10"
+                  value="1"
+                  step="1"
+                  type="range"
+                  name="wolves"
+                />
+                <output for="wolvesSlider">1</output>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label">
+            <label class="label has-text-centered">Total Players</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <span class="control">
+                <input
+                  id="playersSlider"
+                  class="slider has-output is-fullwidth"
+                  min="6"
+                  max="100"
+                  value="6"
+                  step="1"
+                  type="range"
+                  name="players"
+                />
+                <output for="playersSlider">6</output>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox" name="seer" />
+              Add Seer
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox" name="witch" />
+              Add Witch
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <button type="submit" class="button is-primary is-fullwidth"
+              >Create Game</button
+            >
+          </div>
+        </div>
+      </form>
+    </article>
+  </section>
+</Layout>
+
+<script>
+  import * as bulmaSlider from "bulma-slider/dist/js/bulma-slider.min.js";
+  bulmaSlider.default.attach();
+</script>

@@ -1,0 +1,30 @@
+---
+interface Props {
+  userName: string;
+}
+
+const { userName } = Astro.props;
+---
+
+<div class="column is-2">
+  <div class="card">
+    <div
+      class="card-image is-flex is-flex-direction-column is-justify-content-center"
+    >
+      <figure class="image is-2by3">
+        <img
+          src="https://bulma.io/assets/images/placeholders/320x480.png"
+          alt="Placeholder image"
+        />
+      </figure>
+      <figcaption class="title has-text-centered">{userName}</figcaption>
+    </div>
+  </div>
+</div>
+
+<style>
+  figcaption {
+    position: absolute;
+    width: 100%;
+  }
+</style>

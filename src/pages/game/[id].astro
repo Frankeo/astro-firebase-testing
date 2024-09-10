@@ -1,0 +1,50 @@
+---
+import { app } from "../../firebase/server";
+import { getFirestore } from "firebase-admin/firestore";
+import Layout from "../../layouts/Layout.astro";
+import { FIREBASE_GAMES } from "../../constants";
+import CardList from "../../components/CardList.astro";
+import Modal from "../../components/Modal.astro";
+import { createNewPlayer } from "../../handlers/game";
+
+const { id } = Astro.params;
+
+if (id === undefined) {
+  return Astro.redirect("/404");
+}
+
+const db = getFirestore(app);
+const gamesRef = db.collection(FIREBASE_GAMES);
+const gameSnapshot = await gamesRef.doc(id).get();
+
+if (!gameSnapshot.exists) {
+  return Astro.redirect("/404");
+}
+
+const game = gameSnapshot.data() as Game;
+const user = Astro.locals.user;
+const player = await createNewPlayer(game, user, id);
+game.players = [...new Set([...game.players, player])];
+---
+
+<Layout title=`Game : ${id}` user={user?.displayName}>
+  <section class="section">
+    <div class="is-flex is-justify-content-space-between">
+      <h1 class="title">Game Code: {id}</h1>
+      <button class="button is-primary modal-trigger" data-target="modal-rol">
+        <span class="icon is-large">
+          <i class="fa-regular fa-lg fa-eye"></i>
+        </span>
+      </button>
+    </div>
+    <CardList
+      userNames={game.players.map((player) => player.user.displayName!)}
+    />
+  </section>
+  <Modal>
+    <div class="box">
+      <h1 class="title has-text-centered">Rol</h1>
+      {player.rol}
+    </div>
+  </Modal>
+</Layout>

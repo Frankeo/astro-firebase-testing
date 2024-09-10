@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
+
+interface User {
+  displayName?: string;
+  uid?: string;
+}
+
 declare namespace App {
   interface Locals {
-    user: {
-      displayName?: string;
-      uid?: string;
-    };
+    user: User;
   }
 }
 
@@ -44,7 +47,7 @@ interface GameConfig {
 
 interface Player {
   rol: Rol;
-  user: string;
+  user: User;
 }
 
 interface Card {

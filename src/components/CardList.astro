@@ -1,0 +1,13 @@
+---
+import Card from "./Card.astro";
+
+interface Props {
+  userNames: string[];
+}
+
+const { userNames } = Astro.props;
+---
+
+<div class="columns is-multiline">
+  {userNames.map((name) => <Card userName={name} />)}
+</div>

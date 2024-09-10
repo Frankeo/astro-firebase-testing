@@ -30,6 +30,7 @@ module.exports = {
         // Enable recommended rules
         "astro/no-conflict-set-directives": "error",
         "astro/no-unused-define-vars-in-style": "error",
+        "@typescript-eslint/no-non-null-assertion": "off",
         // override/add rules settings here, such as:
         // "astro/no-set-html-directive": "error"
       },
